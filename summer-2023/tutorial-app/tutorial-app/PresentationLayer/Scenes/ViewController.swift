@@ -19,6 +19,7 @@ final class ViewController: UIViewController {
     }
     
     private func prepareUI() {
+        customCollectionView.backgroundColor = .black
         view.addSubview(customCollectionView)
         NSLayoutConstraint.activate([
             customCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -48,7 +49,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = collectionView.bounds.width / CGFloat(4) // Display 4 icons in a row
+        let itemWidth = collectionView.bounds.width / CGFloat(1) // Display 4 icons in a row
         return CGSize(width: itemWidth, height: 100) // Adjust height as needed
     }
     

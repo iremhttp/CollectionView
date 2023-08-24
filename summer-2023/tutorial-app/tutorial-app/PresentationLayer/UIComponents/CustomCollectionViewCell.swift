@@ -17,6 +17,12 @@ final class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     private func prepareUI() {
+        contentView.backgroundColor = .black
+        
+        layer.cornerRadius = 10
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.darkGray.cgColor
+        
         contentView.addSubview(iconView)
         iconView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
