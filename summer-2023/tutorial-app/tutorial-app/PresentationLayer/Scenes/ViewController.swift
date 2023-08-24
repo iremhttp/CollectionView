@@ -1,57 +1,56 @@
-//
-//  ViewController.swift
-//  tutorial-app
-//
-//  Created by Yapı Kredi Teknoloji on 10.08.2023.
-//
-
 import UIKit
 
 final class ViewController: UIViewController {
     
-    let customTableView: UITableView = UITableView()
+    let customCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCell")
+        return collectionView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         prepareUI()
-        initTableView()
+        initCollectionView()
     }
     
     private func prepareUI() {
-        view.addSubview(customTableView)
-        customTableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(customCollectionView)
         NSLayoutConstraint.activate([
-            customTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            customTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            customTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            customTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            customCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            customCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            customCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            customCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
-    private func initTableView() {
-        customTableView.delegate = self
-        customTableView.dataSource = self
-        customTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "DefaultCell")
+    private func initCollectionView() {
+        customCollectionView.delegate = self
+        customCollectionView.dataSource = self
     }
-
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as? CustomTableViewCell
-        cell?.label.text = String(indexPath.row)
-        cell?.sublabel.text = "created sublabel for index \(indexPath.row)"
-        return cell ?? UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath) as? CustomCollectionViewCell
+        cell?.label.text = String(indexPath.item)
+        cell?.sublabel.text = "sublabel index \(indexPath.item)"
+        return cell ?? UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = collectionView.bounds.width / CGFloat(4) // Display 4 icons in a row
+        return CGSize(width: itemWidth, height: 100) // Adjust height as needed
+    }
     
-}
 
+}

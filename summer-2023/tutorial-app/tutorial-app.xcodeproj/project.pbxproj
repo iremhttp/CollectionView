@@ -13,6 +13,7 @@
 		BA1BD2E12A8520970049A26B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1BD2E02A8520970049A26B /* Assets.xcassets */; };
 		BA1BD2E42A8520970049A26B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1BD2E22A8520970049A26B /* LaunchScreen.storyboard */; };
 		BA1BD2EC2A8521B50049A26B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BD2EB2A8521B50049A26B /* CustomTableViewCell.swift */; };
+		DA938B192A95E92700A72254 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA938B182A95E92700A72254 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BA1BD2E32A8520970049A26B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA1BD2E52A8520970049A26B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA1BD2EB2A8521B50049A26B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		DA938B182A95E92700A72254 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1BD2EB2A8521B50049A26B /* CustomTableViewCell.swift */,
+				DA938B182A95E92700A72254 /* CustomCollectionViewCell.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA938B192A95E92700A72254 /* CustomCollectionViewCell.swift in Sources */,
 				BA1BD2DC2A8520960049A26B /* ViewController.swift in Sources */,
 				BA1BD2D82A8520960049A26B /* AppDelegate.swift in Sources */,
 				BA1BD2EC2A8521B50049A26B /* CustomTableViewCell.swift in Sources */,
